@@ -28,10 +28,12 @@ THEDOCTOR
   gem.rdoc_options      = ['--charset = UTF-8']
   gem.extra_rdoc_files  = %w{README.md}
 
-  gem.executables       = Dir['{bin}/**/*'].map {|dir| dir.gsub!(/\Abin\//, '')}
-  gem.files             = Dir['{app,config,db,lib}/**/*'] + %w{Rakefile README.md}
+  gem.executables       = Dir['{bin}/**/*'].map    { |bin| File.basename(bin) }.
+                                            reject { |bin| %w{rails rspec rake setup deploy}.include? bin }
+  gem.files             = Dir['{app,config,db,lib,templates}/**/*'] + %w{Rakefile README.md LICENSE}
   gem.test_files        = Dir['{test,spec,features}/**/*']
-  gem.require_paths     = ['lib']
 
   gem.add_dependency              'rails',          ['>= 3.1', '< 5.0']
+
+  gem.add_development_dependency  'rspec', "~> 3.2"
 end
