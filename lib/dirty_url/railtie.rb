@@ -6,7 +6,7 @@ module DirtyUrl
       url_components = if defined?(Chamber)
                          Chamber.env.http.url_components.symbolize_keys
                        else
-                         settings_file=application.root.join('config', 'dirty_url.yml')
+                         settings_file = application.root.join('config', 'dirty_url.yml')
                          YAML.load(File.read(settings_file)).symbolize_keys
                        end
 
