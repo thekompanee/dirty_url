@@ -1,39 +1,23 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dirty_url/version'
 
-Gem::Specification.new do |gem|
-  gem.rubygems_version  = '1.3.5'
+Gem::Specification.new do |spec|
+  spec.name          = 'dirty_url'
+  spec.version       = DirtyUrl::VERSION
+  spec.authors       = ['jfelchner']
+  spec.email         = 'accounts+git@thekompanee.com'
+  spec.summary       = %q{Make URLs work properly in Rails mailers and controllers.}
+  spec.description   = %q{By 'default', Rails has a difficult time figuring out when it is supposed to show relative URLs in mailers and even when doing comparisons in specs, the URL returned tends to be non-deterministic. Using this gem, Rails will always return the proper URL based on the environment you are executing in.}
+  spec.homepage      = 'https://github.com/thekompanee/dirty_url'
+  spec.license       = 'MIT'
 
-  gem.name              = 'dirty_url'
-  gem.rubyforge_project = 'dirty_url'
+  spec.executables   = []
+  spec.files         = Dir['{app,config,db,lib}/**/*'] + %w{Rakefile README.md LICENSE.txt}
+  spec.test_files    = Dir['{test,spec,features}/**/*']
 
-  gem.version           = DirtyUrl::VERSION
-  gem.platform          = Gem::Platform::RUBY
+  spec.add_dependency             'rails', ["< 5.0", ">= 3.1"]
 
-  gem.authors           = %w{jfelchner}
-  gem.email             = 'accounts+git@thekompanee.com'
-  gem.date              = Time.now
-  gem.homepage          = 'https://github.com/thekompanee/dirty_url'
-
-  gem.summary           = %q{Make URLs work properly in Rails mailers and controllers.}
-  gem.description       = <<-THEDOCTOR
-By 'default', Rails has a difficult time figuring out when it is supposed to
-show relative URLs in mailers and even when doing comparisons in specs, the URL
-returned tends to be non-deterministic. Using this gem, Rails will always return
-the proper URL based on the environment you are executing in.
-THEDOCTOR
-
-  gem.rdoc_options      = ['--charset = UTF-8']
-  gem.extra_rdoc_files  = %w{README.md}
-
-  gem.executables       = Dir['{bin}/**/*'].map    { |bin| File.basename(bin) }.
-                                            reject { |bin| %w{rails rspec rake setup deploy}.include? bin }
-  gem.files             = Dir['{app,config,db,lib,templates}/**/*'] + %w{Rakefile README.md LICENSE}
-  gem.test_files        = Dir['{test,spec,features}/**/*']
-
-  gem.add_dependency              'rails',          ['>= 3.1', '< 5.0']
-
-  gem.add_development_dependency  'rspec', "~> 3.2"
+  spec.add_development_dependency 'rspec', ["~> 3.2"]
 end
