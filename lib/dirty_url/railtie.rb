@@ -12,6 +12,7 @@ module DirtyUrl
 
       application.config.action_dispatch.default_url_options = url_components
       application.config.action_mailer.default_url_options   = url_components
+      application.routes.default_url_options                 = url_components
 
       if ActionMailer::Base.respond_to?(:'default_url_options=')
         ActionMailer::Base.default_url_options = url_components
