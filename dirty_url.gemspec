@@ -12,6 +12,8 @@ Gem::Specification.new do |spec|
   spec.description   = %q{By 'default', Rails has a difficult time figuring out when it is supposed to show relative URLs in mailers and even when doing comparisons in specs, the URL returned tends to be non-deterministic. Using this gem, Rails will always return the proper URL based on the environment you are executing in.}
   spec.homepage      = 'https://github.com/thekompanee/dirty_url'
   spec.license       = 'MIT'
+  spec.cert_chain    = %w{certs/thekompanee.pem}
+  spec.signing_key   = File.expand_path('~/.gem/certs/thekompanee-private_key.pem') if $0 =~ /gem\z/
 
   spec.executables   = []
   spec.files         = Dir['{app,config,db,lib}/**/*'] + %w{Rakefile README.md LICENSE.txt}
