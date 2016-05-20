@@ -3,9 +3,8 @@ inherit_from:
 
 # Put your project-specifc Rubocop config here
 
-Style/IndentationWidth:
+Style/ExtraSpacing:
   Enabled: false
 
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'spec/**/*.rb'
+Style/IndentationWidth:
+  Enabled: false
