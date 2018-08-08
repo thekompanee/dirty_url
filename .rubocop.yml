@@ -2,9 +2,3 @@ inherit_from:
   - '.rubocop_core.yml'
 
 # Put your project-specifc Rubocop config here
-
-Style/ExtraSpacing:
-  Enabled: false
-
-Style/IndentationWidth:
-  Enabled: false
