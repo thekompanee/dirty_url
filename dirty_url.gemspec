@@ -19,9 +19,17 @@ Gem::Specification.new do |spec|
   spec.executables   = []
   spec.files         = Dir['{app,config,db,lib,templates}/**/*'] + %w{README.md LICENSE.txt}
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  spec.metadata      = {
+    'allowed_push_host' => 'https://rubygems.org',
+    'bug_tracker_uri'   => 'https://github.com/thekompanee/dirty_url/issues',
+    'changelog_uri'     => 'https://github.com/thekompanee/dirty_url/blob/master/CHANGELOG.md',
+    'documentation_uri' => 'https://github.com/thekompanee/dirty_url/tree/releases/v#{::DirtyUrl::VERSION}',
+    'homepage_uri'      => 'https://github.com/thekompanee/dirty_url',
+    'source_code_uri'   => 'https://github.com/thekompanee/dirty_url',
+    'wiki_uri'          => 'https://github.com/thekompanee/dirty_url/wiki',
+  }
 
-  spec.add_dependency             'rails', ["< 6.0", ">= 3.1"]
+  spec.add_dependency             'rails', [">= 3.1", "< 6.0"]
 
   spec.add_development_dependency 'rspec', ["~> 3.2"]
 end
